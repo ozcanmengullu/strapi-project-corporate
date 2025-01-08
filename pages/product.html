@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Novenda kalitesiyle tetik püskürtücü spreyler, sıvı sabun pompası, parmak sprey, cream pump ve endüstriyel ambalaj ürünleri. Profesyonel çözümler için tercih edilen marka.">
+    <meta name="keywords" content="tetik püskürtücü, sıvı sabun pompası, parmak sprey, cream pump, köpük yapıcı pompa, pet ambalaj">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.novenda.com/products" />
+    <link rel="icon" href="../assets/logo.jpg">
+
+    <title>NOVENDA - Solution Provider</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../album.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="background-color: #001340 !important;">
+        <a class="navbar-brand" href="index.html">
+          <img src="../assets/logo.jpg" alt="Novenda Logo" style="height: 60px; transform: scale(1.4); transform-origin: center; margin-right: 10px;"> <!-- Burada logo.png'yi kendi logonuzla değiştirin -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">ANASAYFA <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ÜRÜNLER
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" data-id="trigger-sprayers" href="#">Tetik Püskürtücü Spreyler</a>
+                <a class="dropdown-item" data-id="liquid-soap-pump" href="#">Sıvı Sabun Popması</a>
+                <a class="dropdown-item" data-id="foam-pump" href="#">Parmak Sprey</a>
+                <a class="dropdown-item" data-id="cream-nail-pumps" href="#">Cream / Nail Pump</a>
+                <a class="dropdown-item" data-id="foam-maker" href="#">Köpük Yapıcı Pompa</a>
+                <a class="dropdown-item" data-id="cap" href="#">Kapak</a>
+                <a class="dropdown-item" data-id="pet-packaging" href="#">Pet Ambalaj</a>
+                <a class="dropdown-item" data-id="jar-glass-bottle" href="#">Kavanoz / Cam Şişe</a>
+                <a class="dropdown-item" data-id="dropper-bottle" href="#">Damlalık Şişe</a>
+              </div>
+              
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">HAKKIMIZDA</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">İLETİŞİM</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="window.location.href='tel:+905551234567'">
+              <i class="fas fa-phone-alt"></i> Bizi Arayın: +90 555 123 45 67
+            </button>
+          </form>
+          
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container" style="margin-top: 75px;">
+          <h1 class="jumbotron-heading">Tetik Püskürtücü Spreyler</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="justify-content: center; background-color: white;">
+              <li class="breadcrumb-item"><a href="index.html">Anasayfa</a></li>
+              <li class="breadcrumb-item"><a href="">Ürünlerimiz</a></li>
+              <li class="breadcrumb-item active breadcrumbText" aria-current="page">Tetik Püskürtücü Spreyler</li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row" id="product-list" style="justify-content: center;">
+
+          </div>
+
+        </div>
+      </div>
+      <hr class="featurette-divider">
+    </main>
+
+    <footer class="container">
+      <p class="float-right"><a href="#">Yukarı Çık</a></p>
+      <p>&copy; 2024 Novenda &middot;</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../global.js"></script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search); // URL parametrelerini alıyoruz
+      const productId = urlParams.get('productId');
+      // 1. Tüm görselleri bir kere çekiyoruz
+      let allImages = []; // Görselleri saklayacağız
+
+      fetch('http://localhost:1337/api/upload/files')
+        .then(response => response.json())
+        .then(files => {
+          allImages = files; // Görselleri alıyoruz
+          console.log('Görseller:', allImages);
+
+          // 2. Trigger sprayers API'sinden ürün verilerini çekiyoruz
+          return fetch(`http://localhost:1337/api/${productId}`);
+
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data?.data) {
+            console.log('Ürün Verileri:', data);
+            
+            // 3. Her ürün için görsel eşleştirme yapıyoruz
+            data.data.forEach(product => {
+              const productName = product.Title; // API'den dönen ürün adı
+              const productDescription = product.Description; // Ürün açıklaması
+              const productDocumentId = product.documentId; // Document ID
+              
+              // Görseli eşleştiriyoruz
+              const imageUrl = getImageByName(productName, allImages);
+
+              // Ürün kartını oluşturuyoruz
+              createProductCard(productDocumentId, productName, productDescription, imageUrl);
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Hata oluştu:', error);
+        });
+
+      // 2. Görsel URL'sini eşleştiriyoruz
+      function getImageByName(productName, allImages) {
+        // Ürün ismini temizliyoruz (küçük harfe çevirip, - işaretlerini kaldırıyoruz)
+        const cleanName = productName.replace(/-/g, '').toLowerCase();
+        console.log('Temizlenmiş Ürün Adı:', cleanName);
+
+        // Görselleri tarıyoruz ve eşleşen dosyayı buluyoruz
+        const matchedFile = allImages.find(file => {
+          const cleanFileName = file.name.replace(/-/g, '').toLowerCase();
+          return cleanFileName.includes(cleanName);
+        });
+
+        // Eşleşen görseli bulamazsak, placeholder görselini döndürüyoruz
+        if (matchedFile) {
+          return 'http://localhost:1337' + matchedFile.url;
+        } else {
+          console.error('Görsel bulunamadı:', cleanName);
+          return 'https://via.placeholder.com/150'; // Görsel bulunmazsa placeholder görsel
+        }
+      }
+
+      // 3. Ürün kartı oluşturma
+      function createProductCard(documentId, title, description, imageUrl) {
+        const cardContainer = document.getElementById('product-list'); // Ürünlerin ekleneceği container
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('mb-4');
+        card.classList.add('box-shadow');
+        card.style.width = '18rem';
+        card.style.margin = '10px';
+        card.setAttribute('data-id', documentId);
+
+        card.innerHTML = `
+          <img class="card-img-top" src="${imageUrl}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">${title}</h5>
+          </div>
+        `;
+        card.addEventListener('click', function() {
+          handleCardClick(documentId);
+        });
+        // Card'ı container'a ekleyelim
+        cardContainer.appendChild(card);
+      }
+      // Kart tıklama işlemi
+      function handleCardClick(documentId) {
+        // Sayfa yolundaki API türünü almak için doğru parametreyi alıyoruz
+        const apiUrl = window.location.pathname.split('/')[2];  // URL'in 3. kısmı (örneğin: 'trigger-sprayers')
+
+        // Yönlendirilmesi gereken tam URL'yi oluşturuyoruz
+        const productPageUrl = `productDetail.html?type=${productId}&productId=${documentId}`;
+        
+        // Yönlendirme işlemi
+        window.location.href = productPageUrl;
+      }
+
+
+
+      // Sayfa yüklendiğinde, URL'den parametreyi al
+      window.addEventListener('load', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('product'); // URL parametresindeki ürün ID'sini al
+
+        // localStorage'dan başlık adını al
+        const productName = localStorage.getItem('productName');
+
+        // Sayfadaki başlık elemanını güncelle
+        if (productName) {
+          const heading = document.querySelector('.jumbotron-heading');
+          const breadcrumb_text = document.querySelector('.breadcrumbText');
+          heading.textContent = productName; // Başlık metnini güncelle
+          breadcrumb_text.textContent = productName;
+        }
+
+        // Daha fazla işlem burada yapılabilir (örneğin, ürünü API'den yükleme vs.)
+      });
+
+
+    </script>
+  </body>
+</html>
